@@ -1,23 +1,72 @@
 import logo from './logo.svg';
 import './App.css';
+import ProgressionTree from './components/ProgressionTree/ProgressionTree';
+
+const data = [
+  {
+    id: 'header-1',
+    content: 'Header 1',
+    hasBeenSelected: false,
+    children: [
+      {
+        id: 'child-a',
+        content: 'Child A',
+        hasBeenSelected: false,
+        children: [
+          {
+            id: 'child-a-a',
+            content: 'Child A - A',
+            hasBeenSelected: false
+          }
+        ]
+      },
+      {
+        id: 'child-b',
+        content: 'Child B',
+        hasBeenSelected: false,
+        children: [
+          {
+            id: 'child-b-a',
+            content: 'Child B - A',
+            hasBeenSelected: false
+          },
+          {
+            id: 'child-b-b',
+            content: 'Child B - B',
+            hasBeenSelected: false
+          }
+        ]
+      },
+      {
+        id: 'child-c',
+        content: 'Child C',
+        hasBeenSelected: false,
+        children: [
+          {
+            id: 'child-c-a',
+            content: 'Child C - A',
+            hasBeenSelected: false
+          },
+          {
+            id: 'child-c-b',
+            content: 'Child C - B',
+            hasBeenSelected: false
+          },
+          {
+            id: 'child-c-c',
+            content: 'Child C - C',
+            hasBeenSelected: false
+          }
+        ]
+      }
+    ]
+  }
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ProgressionTree data={data} format={'linear'} title={<h2>Testing This</h2>} />
     </div>
   );
 }
