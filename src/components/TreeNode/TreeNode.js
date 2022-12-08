@@ -7,7 +7,7 @@ export default function TreeNode({
     hasChildren,
     level,
     parentNode,
-    parentRef
+    parentRef,
 }) {
 
 
@@ -22,13 +22,15 @@ export default function TreeNode({
         } else {
             let {left, right} = parentRef.current?.getBoundingClientRect();
             const scrollX = window.scrollX;
-            setNodePosition((right - left) / 2 + left + scrollX);
+
+            let position = (right - left) / 2 + left + scrollX;
+            setNodePosition(position);
         }
     }, [parentRef, item.content])
 
     return (
-        <div className='tree-node' style={{ left: `${nodePosition}px`, top: `${level * 40}px` }} ref={nodeRef}>
-            {item.content} ({parentNode?.id})
+        <div className='tree-node' ref={nodeRef} style={{ left: `${nodePosition}px`, top: `${level * 40}px` }}>
+            {item.content}
         </div>
     )
 }

@@ -1,8 +1,12 @@
-.tree {
-    /*width: 50%; 
-    margin: auto; */
+.progression-tree { 
     background-color: grey;
-    /* padding: 20px; */
-    width: auto;
+    margin: 0 auto;
+    width: fit-content;
+    /* height: 30vh; */
     display: inline-block;
+}
+
+.progression-tree-title {
+    display: flex;
+    justify-content: center;
 }

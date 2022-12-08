@@ -65,9 +65,7 @@ const data = [
 
 function App() {
   return (
-    <div>
       <ProgressionTree data={data} format={'linear'} title={<h2>Testing This</h2>} />
-    </div>
   );
 }
 
