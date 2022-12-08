@@ -1,4 +1,6 @@
 .tree-node {
-    display: inline-block;
-    margin: 20px;
+    /* display: inline-block; */
+    margin: 0 auto;
+    position: relative;
+    width: fit-content;
 }

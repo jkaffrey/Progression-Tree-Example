@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import TreeBranch from "../TreeBranch/TreeBranch";
 import TreeNode from "../TreeNode/TreeNode";
 
 import './ProgressionTree.css';
@@ -12,57 +13,11 @@ export default function ProgressionTree({
 
     const progressionTreeRef = useRef(null);
 
-    function loopChildren(data, nodeLevel, parent, nodes) {
-
-        nodeLevel += 1;
-
-        data.forEach(itm => {
-            if (itm.children) {
-                nodes.push({
-                    id: itm.id,
-                    parentId: parent?.id,
-                    content: itm.content,
-                    level: nodeLevel,
-                    hasBeenSelected: itm.hasBeenSelected
-                })
-                loopChildren(itm.children, nodeLevel, itm, nodes)
-            } else {
-                nodes.push({
-                    id: itm.id,
-                    parentId: parent?.id,
-                    content: itm.content,
-                    level: nodeLevel,
-                    hasBeenSelected: itm.hasBeenSelected
-                })
-            }
-        })
-
-        return nodes;
-    }
-
-    function countLevelInstances(level) {
-
-        return loopChildren(data, 0, null, []).filter(node => {
-            return node.level === level;
-        }).length;
-    }
-
-    function children() {
-
-        let children = loopChildren(data, 0, null, []);
-        console.log(children);
-    }
-
     return (
         <div className='tree' id='progression-tree' ref={progressionTreeRef}>
-            <div>{title}</div>
+            {/* <div>{title}</div> */}
             {
-                children()
-            }
-            {
-                loopChildren(data, 0, null, []).map(node => {
-                    return <TreeNode key={node.id} nodeInfo={node} levelSpacing={countLevelInstances(node.level)} treeRef={progressionTreeRef} />
-                })
+                data.map((item) => <TreeBranch key={item.id} item={item} level={0} parentRef={progressionTreeRef} />)
             }
         </div>
     );

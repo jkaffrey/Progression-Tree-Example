@@ -3,4 +3,6 @@
     margin: auto; */
     background-color: grey;
     /* padding: 20px; */
+    width: auto;
+    display: inline-block;
 }
